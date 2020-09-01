@@ -6,8 +6,7 @@ To host this we are going to be making use of **AWS**, A.K.A **Amazon Web Servic
 
 <details>
 <summary>More Information (Cick Here)</summary>
-<br>
-<pre>
+<p>
 
 ### Further Information on Key Words
 
@@ -17,7 +16,7 @@ To host this we are going to be making use of **AWS**, A.K.A **Amazon Web Servic
 4. _**VPC**_ - 
 5. _**Subnet**_ - 
 
-</pre>
+</p>
 </details>
 
 Below is the steps we took to set up this part of the Pipeline.
@@ -26,8 +25,7 @@ Below is the steps we took to set up this part of the Pipeline.
 
 <details>
 <summary>Text Instructions (Cick Here)</summary>
-<br>
-<pre>
+<p>
 
 Go to Amazon Web Services Console and navigate to the EC2 Service, from there select **Create Service**.
 
@@ -84,5 +82,5 @@ _This is me selecting an existing Security Group_.
 
 ![Image_of_step6_creating_EM2](img/Step_6_EM2_Setup.PNG)
 
-</pre>
+</p>
 </details>
