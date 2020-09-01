@@ -7,7 +7,6 @@ To host this we are going to be making use of **AWS**, A.K.A **Amazon Web Servic
 <details>
 <summary>More Information (Cick Here)</summary>
 <br>
-<br><br>
 <pre>
 
 ### Further Information on Key Words
@@ -24,6 +23,11 @@ To host this we are going to be making use of **AWS**, A.K.A **Amazon Web Servic
 Below is the steps we took to set up this part of the Pipeline.
 
 ### Step 1. Setting up our Jenkins Instance
+
+<details>
+<summary>Text Instructions (Cick Here)</summary>
+<br>
+<pre>
 
 Go to Amazon Web Services Console and navigate to the EC2 Service, from there select **Create Service**.
 
@@ -76,3 +80,9 @@ The Security group rules should look like so:
 |-------------|--------------|----------------|------------|-----------------------|
 | All traffic | All          | All            | 0.0.0.0/0  | Allow All Traffic Out |
 
+_This is me selecting an existing Security Group_.
+
+![Image_of_step6_creating_EM2](img/Step_6_EM2_Setup.PNG)
+
+</pre>
+</details>
