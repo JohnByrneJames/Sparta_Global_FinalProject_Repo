@@ -82,5 +82,57 @@ _This is me selecting an existing Security Group_.
 
 ![Image_of_step6_creating_EM2](img/Step_6_EM2_Setup.PNG)
 
+Now launch the instance, and choose a key that will be used to SSH into the instance later on to set it up. In this case I chose the DevOpsStudentKey
+
+![Image_of_step7_creating_EM2](img/Step_7_EM2_Setup.PNG)
+
+Now we should be able to view our instance in the main menu, we can also get the IP if we click it and copy the public IPv4 address. Copy this address for now as we will need it in the next step.
+
+![Image_of_step8_creating_EM2](img/Step_8_EM2_Setup.PNG)
+
+Now go into a unix-based terminal on your system, in my case the GitBash Terminal. and write the following command. Make sure you have the corresponding key you set in the `.ssh` folder.
+
+```bash
+# SSH into the Jenkins instance using SSH
+ssh -i ~/.ssh/DevOpsStudentKey ubuntu@<ipv4_of_EM2>
+```
+
+Once you are inside we need to install Jenkins and start it on our instance. Instance is by default running on port `8080`.
+
+```bash
+# Install Java Development Kit (JDK)
+sudo apt update
+sudo apt install openjdk-8-jdk
+
+# Install Jenkins
+wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+
+echo "deb https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
+
+# Update Machine
+sudo apt-get update -y
+sudo apt-get install jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+```
+
+This should then display a success message like the one below, if the server has been successfully installed.
+
+![Image_of_step9_creating_EM2](img/Step_9_EM2_Setup.PNG)
+
+We are going to set up the Jenkins Server in our browser in the next step...
+
 </p>
 </details>
+
+<details>
+<summary>Video Instructions (Cick Here)</summary>
+<p>
+
+**This is a Gif of the Steps to take**, it less descriptive than the text but is here for extra help of what steps you need to take.
+
+_Video to go here..._
+
+</p>
+</details>
+
