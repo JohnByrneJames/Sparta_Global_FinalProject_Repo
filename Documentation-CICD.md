@@ -13,8 +13,7 @@ To host this we are going to be making use of **AWS**, A.K.A **Amazon Web Servic
 1. _**What is Jenkins?**_ - Jenkins is an automation server commonly used to support building, deploying and automating any project pipeline. It is open source, meaning there are thousands of amazing plugins.
 2. _**What is AWS**_ - Amazon Web Services is an on-demand cloud platform that provides services to companies requiring database storage, content delivery, or other functionality.
 3. _**What is a EC2**_ - A Service on AWS it stands for _Amazon Elastic Compute Cloud_ is a web service that provides secure, resizable compute capacity in the cloud. Designed to make web-scaling easier and allows access to VMs on Amazons computing environment.
-4. _**VPC**_ - 
-5. _**Subnet**_ - 
+4. _**VPC**_ - A Virtual private cloud on AWS creates a virtual network to launch resources into; such as a EC2. This virtual network closely resembles a traditional network that you'd operate in your own data center, with the benefits of using the scalable infrastructure of AWS. 
 
 </p>
 </details>
@@ -126,12 +125,12 @@ We are going to set up the Jenkins Server in our browser in the next step...
 </details>
 
 <details>
-<summary>Video Instructions (Cick Here)</summary>
+<summary>Video Instructions (Click Here)</summary>
 <p>
 
 **This is a Gif of the Steps to take**, it less descriptive than the text but is here for extra help of what steps you need to take.
 
-### Video 1 - Setting up Jenkins EM2 on AWS
+### Video 1 - Setting up Jenkins EC2 on AWS
 
 ![Gif1_Settingup_jenkins_onAWS](img/GifOfEM2ONAWS.gif)
 
@@ -139,6 +138,21 @@ We are going to set up the Jenkins Server in our browser in the next step...
 
 ![Gif2_Settingup_Jenkins_insideEM2](img/GifOfINSTALLONJENKINS.gif)
 
+commands run in this video 
+```bash
+sudo apt update
+sudo apt install openjdk-8-jdk
+wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+echo "deb https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
+sudo apt-get update -y
+sudo apt-get install jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+```
+
 </p>
 </details>
 
+### Step 2. Setting up our Jenkins Instance
+
+Setting up Jenkins instance with a slave node, all the work that is sent to Jenkins is usually delegated to slave nodes which do whatever was requested and return a result.
