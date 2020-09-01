@@ -131,7 +131,13 @@ We are going to set up the Jenkins Server in our browser in the next step...
 
 **This is a Gif of the Steps to take**, it less descriptive than the text but is here for extra help of what steps you need to take.
 
-_Video to go here..._
+### Video 1 - Setting up Jenkins EM2 on AWS
+
+![Gif1_Settingup_jenkins_onAWS](img/GifOfEM2ONAWS.gif)
+
+### Video 2 - Setting up Jenkins inside EM2 Instance
+
+![Gif2_Settingup_Jenkins_insideEM2](img/GifOfINSTALLONJENKINS.gif)
 
 </p>
 </details>
