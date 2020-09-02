@@ -100,7 +100,7 @@ Once you are inside we need to install Jenkins and start it on our instance. Ins
 
 ```bash
 # Install Java Development Kit (JDK)
-sudo apt update
+sudo apt update -y
 sudo apt install openjdk-8-jdk
 
 # Install Jenkins
@@ -119,6 +119,19 @@ This should then display a success message like the one below, if the server has
 
 ![Image_of_step9_creating_EM2](img/Step_9_EM2_Setup.PNG)
 
+Lastly, we need to add a docker socket into our Jenkins server. this is to ensure it will be compatiable with docker.
+
+These are the following commands to create a user called docker with access to a socket, allowing connection out and in.
+
+```bash
+# Add a new user docker to the sudo group
+sudo groupadd docker
+sudo usermod -aG docker ${USER}
+su -s ${USER}
+sudo systemctl restart docker
+sudo chmod 666 /var/run/docker.sock
+```
+
 We are going to set up the Jenkins Server in our browser in the next step...
 
 </p>
@@ -134,13 +147,13 @@ We are going to set up the Jenkins Server in our browser in the next step...
 
 ![Gif1_Settingup_jenkins_onAWS](img/GifOfEM2ONAWS.gif)
 
-### Video 2 - Setting up Jenkins inside EM2 Instance
+### Video 2 - Setting up Jenkins inside EC2 Instance
 
 ![Gif2_Settingup_Jenkins_insideEM2](img/GifOfINSTALLONJENKINS.gif)
 
 commands run in this video 
 ```bash
-sudo apt update
+sudo apt update -y
 sudo apt install openjdk-8-jdk
 wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
 echo "deb https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
@@ -153,6 +166,40 @@ sudo systemctl status jenkins
 </p>
 </details>
 
-### Step 2. Setting up our Jenkins Instance
+### Step 2. Setting up Jenkins automation server
+
+Go to your jenkins server on the web, with the IP and the correct port which is `8080`; the default port for Jenkins web server.
+
+Before we do that lets fetch a secret passcode that Jenkins saves to activate the automation server. 
+
+```bash
+# get passcode
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+It will be a random string, copy it and then navigate to the server in the browser with your IP like so: _192.312.131.12:8080_.
+
+![Step1_Of_Jenkins](img/Step_1_Jenkins_Setup.PNG)
+
+Now install the suggested plugins for Jenkins, wait until they are installed...
+
+![Step2_Of_Jenkins](img/Step_2_Jenkins_Setup.PNG)
+
+Now navigate to **Manage Jenkins > Plugin Manager** and install _Docker pipeline_ and _Docker_. As these will be needed later to work with Docker.
+
+That is it for the Jenkins set up. Now we need a slave Node.
+
+### Step 3. Setting up our Jenkins Slave Instance
 
 Setting up Jenkins instance with a slave node, all the work that is sent to Jenkins is usually delegated to slave nodes which do whatever was requested and return a result.
+
+Now we need another identical EC2 instance on AWS, this one can be called _Jenkins Slave_ or something similar. The set up is identical to the last one so refer back to the last step if you can't remember how.
+
+<details>
+<summary>Text Instructions (Click Here)</summary>
+<p>
+
+Slave
+
+</p>
+</details>
