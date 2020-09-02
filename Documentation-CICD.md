@@ -147,7 +147,7 @@ We are going to set up the Jenkins Server in our browser in the next step...
 
 ![Gif1_Settingup_jenkins_onAWS](img/GifOfEM2ONAWS.gif)
 
-### Video 2 - Setting up Jenkins inside EC2 Instance
+### Video 2 - Setting up Jenkins Automation Server
 
 ![Gif2_Settingup_Jenkins_insideEM2](img/GifOfINSTALLONJENKINS.gif)
 
@@ -187,19 +187,10 @@ Now install the suggested plugins for Jenkins, wait until they are installed...
 
 Now navigate to **Manage Jenkins > Plugin Manager** and install _Docker pipeline_ and _Docker_. As these will be needed later to work with Docker.
 
-That is it for the Jenkins set up. Now we need a slave Node.
+That is it for the Jenkins set up. Now we need a slave Node, so that it can run all of Jenkins workloads.
 
 ### Step 3. Setting up our Jenkins Slave Instance
 
 Setting up Jenkins instance with a slave node, all the work that is sent to Jenkins is usually delegated to slave nodes which do whatever was requested and return a result.
 
 Now we need another identical EC2 instance on AWS, this one can be called _Jenkins Slave_ or something similar. The set up is identical to the last one so refer back to the last step if you can't remember how.
-
-<details>
-<summary>Text Instructions (Click Here)</summary>
-<p>
-
-Slave
-
-</p>
-</details>
